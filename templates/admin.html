@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Админ меню
+{% endblock %}
+
+{% block body %}
+<div class="login mb-5">
+    <h1>Добавить новый товар</h1>
+    <form id="form" method="post">
+        <label for="name">
+            <i class="fa fa-user"></i>
+        </label>
+        <input type="text" name="name" placeholder="Название товара" id="name" required>
+        <label for="price"> Цена товара
+            <i class="fa fa-lock"></i>
+        </label>
+        <input type="text" name="price" placeholder="Цена" id="price" required>
+        <label for="opisanie"> Описание товара
+            <i class="fa fa-lock"></i>
+        </label>
+        <input type="text" name="opisanie" placeholder="Описание" id="opisanie" required>
+        <label for="image"> Аватар товара
+            <i class="fa fa-lock"></i>
+        </label>
+        <input type="text" name="image" placeholder="Аватар" id="image" required>
+        <label for="type"> Номер типа товара
+            <i class="fa fa-lock"></i>
+        </label>
+        <input type="text" name="type" placeholder="1-4" id="type" required>
+        <div class="msg"><span style="color:red; font-size: 18px">{{ msg }}</span></div>
+        <div class="msg"><span style="color:green; font-size: 18px">{{ msgr }}</span></div>
+        <input type="submit" value="Добавить">
+    </form>
+</div>
+
+
+<style>
+    * {
+        box-sizing: border-box;
+        font-family: -apple-system, BlinkMacSystemFont, "segoe ui", roboto, oxygen, ubuntu, cantarell, "fira sans", "droid sans", "helvetica neue", Arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    table {
+        display: flex;
+        justify-content: center;
+        border-collapse: separate;
+        border-spacing: 50px 3px;
+        text-align: center;
+        font-size: 18px;
+    }
+
+    label {
+        margin-bottom: 10px;
+    }
+</style>
+{% endblock %}

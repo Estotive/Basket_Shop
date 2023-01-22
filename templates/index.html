@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Главная страница
+{% endblock %}
+
+{% block body %}
+<div class="row" style="margin-top:3%">
+    <div class="card" style='width: 25%'>
+        <img alt="Avatar"
+             src="https://prokedi.ru/content/img/528/basketbolnye-krossovki-nike-lebron-witness-4-quotlakers-awayquot-bv7427-004_4247998.jpg"
+             style="margin-top:16px">
+        <div class="container">
+            <h4><b>КРОССОВКИ</b></h4>
+            <p></p>
+            <div class="button">
+                <a class="btn btn-outline-primary me-2" href="/booking">Узнать больше</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="card" style='width: 25%'>
+        <img alt="Avatar"
+             src="https://5.allegroimg.com/original/03203b/5571bf4f41cd8314b2cc664b62f5/SPALDING-TF500-5-EXCEL-PILKA-DO-KOSZYKOWKI-SKORA-Liczba-paneli-konstrukcji-8" style="margin-top:16px">
+        <div class="container">
+            <h4><b>МЯЧИ</b></h4>
+            <p> <b></b>  <b>
+                </b>  <b></b> <b></b></p>
+            <div class="button">
+                <a class="btn btn-outline-primary me-2" href="/">Узнать больше</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="card" style='width: 25%'>
+        <img alt="Avatar"
+             src="https://nbaform.ru/wa-data/public/shop/products/59/44/4459/images/25583/25583.970x0.jpg"
+             style="margin-top:16px">
+        <div class="container">
+            <h4><b>ФОРМА</b></h4>
+            <p></p>
+            <div class="button">
+                <a class="btn btn-outline-primary me-2" href="/">Узнать больше</a>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<main>
+    <section class="text-center container">
+        <div class="row py-lg-5">
+            <div class="col-lg-6 col-md-8 mx-auto">
+                <h1 class="fw-light">Баскетбольный магазин</h1>
+                <b style="text-align: center; font-size: 36px">"Grand Basket"</b>
+                <p class="lead text-muted mt-3">Здесь вы можете найти оригинальные кроссовки, форму, мячи и аксессуары для баскетбола на каждый день.
+                   </p>
+                <p>
+                    <a class="btn btn-primary my-2" href="/katalog">Каталог</a>
+                    <a class="btn btn-secondary my-2" href="/about">Узнать больше</a>
+                </p>
+            </div>
+        </div>
+    </section>
+</main>
+
+<style>
+    .container {
+        margin: auto;
+    }
+
+    .button {
+        float: right;
+        margin-bottom: 15px;
+    }
+
+    h4 {
+        margin-top: 3%;
+        text-align: center;
+    }
+
+    img {
+        border-radius: 5px 5px 0 0;
+    }
+
+    p {
+        text-align: center;
+    }
+
+</style>
+{% endblock %}

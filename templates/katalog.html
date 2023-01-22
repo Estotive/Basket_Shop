@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Каталог
+{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+    <h1 style="text-align:center">Каталог</h1>
+
+    <div class="row" style="margin-top:3%">
+        {%for katalogs in katalog%}
+        <div class="card" style='width: 25%'>
+            <img src="{{ katalogs.image }}" alt="Avatar" style="margin-top:16px">
+            <div class="container">
+
+                    Цена: <b>{{ katalogs.price }} руб.</b></h4>
+                <p>Название: <b>{{ katalogs.name }}</b></p>
+                <p>Описание: <b>{{ katalogs.opisanie }}</b></p>
+                {%if session['username'] != 'admin'%}
+                <div class="button">
+                    <a href="/payment/{{ katalogs.idtovar }}" class="btn btn-outline-primary me-2">Купить</a>
+                    </form>
+                </div>
+                {%endif%}
+
+            </div>
+        </div>
+        {%endfor%}
+    </div>
+</div>
+
+<style>
+    .container {
+        margin: auto;
+    }
+
+    .button {
+        float: right;
+        margin-bottom: 15px;
+    }
+
+    h4 {
+        margin-top: 3%;
+    }
+
+</style>
+
+{% endblock %}
