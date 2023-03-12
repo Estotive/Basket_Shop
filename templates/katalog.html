@@ -11,11 +11,11 @@
     <div class="row" style="margin-top:3%">
         {%for katalogs in katalog%}
         <div class="card" style='width: 25%'>
-            <img src="{{ katalogs.image }}" alt="Avatar" style="margin-top:16px">
+            <img src="{{ katalogs.image }}" alt="Avatar" style="margin-top:16px" width="100%">
             <div class="container">
 
-                    Цена: <b>{{ katalogs.price }} руб.</b></h4>
                 <p>Название: <b>{{ katalogs.name }}</b></p>
+                Цена: <b>{{ katalogs.price }} руб.</b></h4>
                 <p>Описание: <b>{{ katalogs.opisanie }}</b></p>
                 {%if session['username'] != 'admin'%}
                 <div class="button">

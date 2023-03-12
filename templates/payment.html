@@ -29,10 +29,11 @@
             <i class="fa fa-lock"></i>
         </label>
         <input type="text" id="price" name="price" value="{{ tovars.price }}" readonly>
-            <input type="hidden" id="idtovar" name="idtovar" placeholder="Товар" value='{{ tovar.idtovar }}' readonly>
+            <input type="hidden" id="idtovar" name="idtovar" placeholder="Товар" value='{{ tovars.idtovar }}' readonly>
         {% endfor %}
         <div class="msg"><span style="color:red; font-size: 18px">{{ msg }}</span></div>
-        <input type="submit" value="Отправить">
+        <div class="msgr"><span style="color:green; font-size: 18px">{{ msgr }}</span></div>
+        <input type="submit" value="Оформить">
     </form>
 </div>
 

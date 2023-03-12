@@ -24,7 +24,7 @@ def admin():
             cursor.execute(f'''INSERT INTO `tovar` (`name`, `price`, `opisanie`, `image`, `type_idtype`) 
                                 VALUES ('{name}', '{price}', '{opisanie}', '{image}', '{type}')''')
             mysql.connection.commit()
-            msgr = 'Номер успешно создан'
+            msgr = 'Товар добавлен'
         except(Exception,):
             msg = 'Данные неверны'
     cursor.execute(f"SELECT * FROM zakaz")

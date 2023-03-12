@@ -46,7 +46,7 @@ def register():
         # elif not re.match(r'[^@]+@[^@]+\.[^@]+', email):
         #     msg = 'Invalid email address!'
         elif not re.match(r'[A-Za-z0-9]+', username):
-            msg = 'Логин должен содержать только буквы и цифры!'
+            msg = 'Логин должен содержать только цифры латинские буквы!'
         elif not username or not password:
             msg = 'Пожалуйста, заполните это поле!'
         elif password != passconfirm:

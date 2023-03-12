@@ -1,5 +1,6 @@
 from datetime import timedelta
 
+
 from flask import Flask, render_template, redirect, request, url_for, session
 from flask_mysqldb import MySQL, MySQLdb
 
@@ -30,6 +31,7 @@ def create_connection(host, user, password, db):
 
 
 connect_db = create_connection('localhost', 'root', 'rasengan8631', 'basket_shop')
+# connect_db = create_connection('MartinyukI120.mysql.pythonanywhere-services.com', 'MartinyukI120', 'rasengan8631', 'MartinyukI120$Basket_Shop')
 
 app.add_url_rule('/', view_func=home.index)
 
@@ -58,6 +60,7 @@ def payment(idtovar):
     if not session.get("username"):
         return redirect("/login")
     msg = ''
+    msgr = ''
     cursor = mysql.connection.cursor()
     cursor.execute(f"SELECT * FROM tovar WHERE idtovar={idtovar}")
     tovar = cursor.fetchall()
@@ -66,11 +69,15 @@ def payment(idtovar):
         phone = request.form['phone']
         address = request.form['address']
         idtovar = request.form['idtovar']
-        cursor.execute(f'''INSERT INTO `zakaz` (`pokupatel`, `phone`, `address`, `tovar_idtovar`)
-                VALUES ('{pokupatel}', '{phone}', '{address}', '{idtovar}') ''')
-        mysql.connection.commit()
+        try:
+            cursor.execute(f'''INSERT INTO `zakaz` (`pokupatel`, `phone`, `address`, `tovar_idtovar`)
+                    VALUES ('{pokupatel}', '{phone}', '{address}', '{idtovar}') ''')
+            mysql.connection.commit()
+            msgr = "Заказ оформлен"
+        except(Exception, ):
+            msg = "Данные неверны"
         cursor.close()
-    return render_template('payment.html', msg=msg, tovar=tovar)
+    return render_template('payment.html', msg=msg, tovar=tovar, msgr=msgr)
 
 
 @app.route('/reviews')
