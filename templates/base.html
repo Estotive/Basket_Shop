@@ -18,20 +18,20 @@
         <li class="nav-item"><a href="/" class="btn btn-primary py-2" aria-current="page">Главная</a></li>
         <li class="nav-item"><a href="/katalog" class="nav-link">Каталог</a></li>
         <li class="nav-item"><a href="/reviews" class="nav-link">Отзывы</a></li>
-        <li class="nav-item"><a href="/help" class="nav-link">Помощь</a></li>
+        <!--        <li class="nav-item"><a href="/help" class="nav-link">Помощь</a></li>-->
         <li class="nav-item"><a href="/about" class="nav-link">О нас</a></li>
     </ul>
 
     <div style="margin-right: 20px">
         {% if session['username'] %}
-            Пользователь: {{ session['username'] }}
-            {% if session['username'] == 'admin' %}
-                <a class="btn btn-outline-primary me-2" href="/admin" style="margin-left: 10px">Админ меню</a>
-            {% endif %}
-            <a class="btn btn-outline-primary me-2" href="/logout" style="margin-left: 10px">Выйти</a>
+        Пользователь: {{ session['username'] }}
+        {% if session['username'] == 'admin' %}
+        <a class="btn btn-outline-primary me-2" href="/admin" style="margin-left: 10px">Админ меню</a>
+        {% endif %}
+        <a class="btn btn-outline-primary me-2" href="/logout" style="margin-left: 10px">Выйти</a>
         {% else %}
-            <a class="btn btn-outline-primary me-2" href="/login">Войти</a>
-            <a class="btn btn-primary me-2" href="/register">Зарегистрироваться</a>
+        <a class="btn btn-outline-primary me-2" href="/login">Войти</a>
+        <a class="btn btn-primary me-2" href="/register">Зарегистрироваться</a>
         {% endif %}
     </div>
 </header>
@@ -45,18 +45,16 @@
             <small class="d-block mb-3 text-muted" style="margin-left: 20px; margin-top: 75px">© Grand Basket</small>
         </div>
         <div class="col-6 col-md">
-            <h5>Разделы</h5>
+            <h5>Контакты</h5>
             <ul class="list-unstyled text-small">
-                <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Главная</a></li>
-                <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Каталог</a></li>
-                <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Отзывы</a></li>
-                <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Помощь</a></li>
+                <li class="mb-1"><a class="link-secondary text-decoration-none" style="margin-right: 100px;">Телефон горячей линии:<p></p> +7(978) 777 11 11</a></li>
+                <li class="mb-1"><a class="link-secondary text-decoration-none"><p style="height: 2px"></p>Почта: grandbasket@gmail.com</a></li>
             </ul>
         </div>
         <div class="col-6 col-md">
             <h5>Покупателям</h5>
             <ul class="list-unstyled text-small">
-                <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Как сделать заказ</a></li>
+                <li class="mb-1"><a class="link-secondary text-decoration-none " href="#">Как сделать заказ</a></li>
                 <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Правила продажи</a></li>
                 <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Способы оплаты</a></li>
                 <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Доставка</a></li>

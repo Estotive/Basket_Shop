@@ -30,3 +30,24 @@ def admin():
     cursor.execute(f"SELECT * FROM zakaz")
     guest = cursor.fetchall()
     return render_template('admin.html', msg=msg, msgr=msgr, guest=guest)
+
+def delete():
+    if session['username'] != 'admin':
+        return redirect('/')
+    cursor = mysql.connection.cursor()
+    msg = ''
+    msgr = ''
+    try:
+        if request.method == 'POST':
+            name = request.form["name"]
+            cursor.execute(f'''SELECT * from tovar WHERE name='{name}' ''')
+            tov = cursor.fetchone()
+            if tov is None:
+                msg = "Товар не найден"
+            else:
+                cursor.execute(f'''DELETE from tovar WHERE name='{name}' ''')
+                mysql.connection.commit()
+                msgr = "Товар удален"
+    except(Exception, ):
+        msg = "Данные неверны"
+    return render_template('delete.html', msg=msg, msgr=msgr)

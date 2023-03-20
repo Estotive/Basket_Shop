@@ -132,7 +132,7 @@ html {
 }
 
 .login form input[type="submit"]:hover, .register form input[type="submit"]:hover {
-    background-color: brown;
+    background-color: forestgreen;
     transition: background-color 0.2s;
 }
 

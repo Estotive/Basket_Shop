@@ -6,35 +6,19 @@
 
 {% block body %}
 <div class="login mb-5">
-    <h1>Добавить новый товар</h1>
-     <div class="links" style="text-align: center">
-        <a href="{{ url_for('admin') }}" class="active">ДОБАВИТЬ</a>
-        <a href="{{ url_for('delete') }}">УДАЛИТЬ</a>
+    <h1>Удалить товар</h1>
+  <div class="links">
+        <a href="{{ url_for('admin') }}">ДОБАВИТЬ</a>
+        <a href="{{ url_for('delete') }}" class="active">УДАЛИТЬ</a>
     </div>
     <form id="form" method="post">
         <label for="name">
             <i class="fa fa-user"></i>
         </label>
         <input type="text" name="name" placeholder="Название товара" id="name" required>
-        <label for="price"> Цена товара
-            <i class="fa fa-lock"></i>
-        </label>
-        <input type="text" name="price" placeholder="Цена" id="price" required>
-        <label for="opisanie"> Описание товара
-            <i class="fa fa-lock"></i>
-        </label>
-        <input type="text" name="opisanie" placeholder="Описание" id="opisanie" required>
-        <label for="image"> Аватар товара
-            <i class="fa fa-lock"></i>
-        </label>
-        <input type="text" name="image" placeholder="Аватар" id="image" required>
-        <label for="type"> Номер типа товара
-            <i class="fa fa-lock"></i>
-        </label>
-        <input type="text" name="type" placeholder="1-balls|2-forma|3-aksessuari|4-krossovki" id="type" required>
         <div class="msg"><span style="color:red; font-size: 18px">{{ msg }}</span></div>
         <div class="msg"><span style="color:green; font-size: 18px">{{ msgr }}</span></div>
-        <input type="submit" value="Добавить">
+        <input type="submit" value="Удалить">
     </form>
 </div>
 

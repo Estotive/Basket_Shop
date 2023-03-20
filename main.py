@@ -1,6 +1,5 @@
 from datetime import timedelta
 
-
 from flask import Flask, render_template, redirect, request, url_for, session
 from flask_mysqldb import MySQL, MySQLdb
 
@@ -44,15 +43,7 @@ app.add_url_rule('/register', methods=['GET', 'POST'], view_func=auth.register)
 
 # Admin panel
 app.add_url_rule('/admin', methods=['GET', 'POST'], view_func=admin.admin)
-
-
-@app.route('/booking', methods=['GET', 'POST'])
-def booking():
-    cursor = mysql.connection.cursor()
-    cursor.execute(
-        "select * from roomtype , room where room.RoomType_idRoomType = roomtype.idRoomType and room.status = 'free'")
-    room = cursor.fetchall()
-    return render_template("booking.html", room=room)
+app.add_url_rule('/delete', methods=['GET', 'POST'], view_func=admin.delete)
 
 
 @app.route('/payment/<idtovar>', methods=['GET', 'POST'])
@@ -74,15 +65,30 @@ def payment(idtovar):
                     VALUES ('{pokupatel}', '{phone}', '{address}', '{idtovar}') ''')
             mysql.connection.commit()
             msgr = "Заказ оформлен"
-        except(Exception, ):
+        except(Exception,):
             msg = "Данные неверны"
         cursor.close()
     return render_template('payment.html', msg=msg, tovar=tovar, msgr=msgr)
 
 
-@app.route('/reviews')
+@app.route('/reviews', methods=['GET', 'POST'])
 def reviews():
-    return render_template("reviews.html")
+    cursor = mysql.connection.cursor()
+    cursor.execute(f'''SELECT * FROM reviews''')
+    rev = cursor.fetchall()
+    if request.method == 'POST':
+        if session:
+            user = session['username']
+            cursor.execute(f'''SELECT * FROM account WHERE login = '{user}' ''')
+            name = cursor.fetchone()
+            description = request.form['desc']
+            cursor.execute(
+                f'''INSERT INTO `reviews` (`desc`, `username`) VALUES ('{description}', '{name['login']}') ''')
+            mysql.connection.commit()
+            return redirect("/reviews")
+        else:
+            return redirect("/register")
+    return render_template("reviews.html", rev=rev)
 
 
 @app.route('/help')
